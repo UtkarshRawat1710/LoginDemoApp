@@ -133,9 +133,13 @@ CarRentalSystem/
 ├── Controllers/
 <br>
 ├── Models/
-<<br>
+<br>
 ├── Views/
+<br>
 ├── wwwroot/
+<br>
 ├── appsettings.json
+<br>
 ├── CarRentalSystem.csproj
+<br>
 └── CarRentalSystem.sln
