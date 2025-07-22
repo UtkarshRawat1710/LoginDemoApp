@@ -148,28 +148,36 @@ CarRentalSystem/
 
 ## 🔧 How to Run
 
-1. Clone the repository:
-   ```bash
-   git clone https://github.com/your-username/CarRentalManagementSystem.git
+Follow these steps to set up and run the project locally:<br><br>
 
-<br>
-   
-2.Open the .sln file in Visual Studio.
-<br>
-3.Update the connection string in appsettings.json:
+### 1. Clone the Repository
 
+git clone https://github.com/your-username/CarRentalManagementSystem.git
 <br>
+2. Open the Solution in Visual Studio
+Open the .sln file using Visual Studio.<br><br>
+
+3. Update the Connection String
+In the appsettings.json file, update the connection string as per your SQL Server:<br>
+
+json
+Copy
+Edit
 "ConnectionStrings": {
   "DefaultConnection": "Server=.;Database=CarRentalDB;Trusted_Connection=True;"
 }
 <br>
-4.Apply Migrations and update DB:
-<br>
+4. Apply Migrations and Update the Database
+Open the Package Manager Console in Visual Studio and run:<br>
 
-
+powershell
+Copy
+Edit
 Add-Migration InitialCreate
-<br>
 Update-Database
 <br>
-5.Run the project using IIS Express or Kestrel.
-  
+Note: If migrations already exist, you can skip Add-Migration.<br><br>
+
+5. Run the Project
+Run the project using IIS Express or Kestrel (dotnet run).<br>
+The app will launch in your default browser.
