@@ -1,4 +1,4 @@
-﻿@using Microsoft.AspNetCore.Http
+@using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
 
@@ -7,7 +7,7 @@
     var userEmail = HttpContextAccessor.HttpContext.Session.GetString("UserEmail");
     var userId = HttpContextAccessor.HttpContext.Session.GetString("UserId");
     var userRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
-    var userPassword = HttpContextAccessor.HttpContext.Session.GetString("UserPassword");
+   
 }
 
 @if (TempData["Success"] != null)
@@ -78,7 +78,7 @@
 
                     <div class="mb-3">
                         <<label for="Password" class="form-label">Password (leave blank to keep current)</label>
-                        <input type="password" class="form-control" id="Password" name="Password" value="@userPassword" />
+                        <input type="password" class="form-control" id="Password" name="Password" />
                     </div>
 
                     <input type="hidden" name="Role" value="@userRole" />
