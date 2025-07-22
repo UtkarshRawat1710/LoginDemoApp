@@ -187,7 +187,7 @@ The app will launch in your default browser.
 JWT-based Authentication
 <br>
 Email Confirmation and Forgot Password
-
+<br>
 Search & Filter cars by type, price, etc.
-
+<br>
 Payment Gateway Integration
