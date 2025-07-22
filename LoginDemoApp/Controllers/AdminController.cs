@@ -1,4 +1,4 @@
-﻿using System.Xml.Linq;
+using System.Xml.Linq;
 using LoginDemoApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -17,13 +17,12 @@ namespace LoginDemoApp.Controllers
         {
             _context = context;
         }
-        public IActionResult AdminDashboard(string name,string email,int id,string password,string role)
+        public IActionResult AdminDashboard(string name,string email,int id,string role)
         {
            
             HttpContext.Session.SetString("UserName", name);
             HttpContext.Session.SetString("UserEmail", email);
             HttpContext.Session.SetInt32("UserId", id);
-            HttpContext.Session.SetString("UserPassword", password);
             HttpContext.Session.SetString("UserRole", role);
             return View();
            
