@@ -185,7 +185,7 @@ The app will launch in your default browser.
 ## 🚀 Future Enhancements
 <br>
 JWT-based Authentication
-
+<br>
 Email Confirmation and Forgot Password
 
 Search & Filter cars by type, price, etc.
