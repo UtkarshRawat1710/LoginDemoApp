@@ -176,9 +176,8 @@ Open the **Package Manager Console** in Visual Studio and run:
 
 Add-Migration InitialCreate
 Update-Database
-<br>
-> **Note:** If migrations already exist, you can skip `Add-Migration`.  
-<br>
+<br><br>
+
 ### 5. Run the Project  
 <br>
 Run the project using **IIS Express** or **Kestrel** (`dotnet run`).  
