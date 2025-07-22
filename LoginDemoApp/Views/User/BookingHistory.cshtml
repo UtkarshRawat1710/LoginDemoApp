@@ -1,0 +1,75 @@
+﻿@model IEnumerable<LoginDemoApp.Models.Booking>
+
+@{
+    ViewData["Title"] = "Booking History";
+    Layout = null;
+}
+
+@await Html.PartialAsync("customerheader")
+
+<!-- Main content section -->
+<div class="container mt-5 mb-5" style="min-height: 70vh;">
+    <div class="row justify-content-center">
+        <div class="col-md-10">
+            <div class="card shadow-sm">
+                <div class="card-header bg-primary text-white text-center">
+                    <h4>Your Booking History</h4>
+                </div>
+                <div class="card-body">
+                    @if (ViewBag.Message != null)
+                    {
+                        <div class="alert alert-info">@ViewBag.Message</div>
+                    }
+                    else
+                    {
+                        <div class="table-responsive">
+                            <table class="table table-bordered table-striped table-hover">
+                                <thead class="table-dark text-center">
+                                    <tr>
+                                        <th>Car</th>
+                                        <th>Start Date</th>
+                                        <th>End Date</th>
+                                        <th>Total Amount (₹)</th>
+                                        <th>Status</th>
+                                        <th>Payment Mode</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    @foreach (var booking in Model)
+                                    {
+                                        <tr>
+                                            <td>
+                                                @if (booking.Car != null)
+                                                {
+                                                    <span>@booking.Car.Brand @booking.Car.Model</span>
+                                                }
+                                                else
+                                                {
+                                                    <em>Car details unavailable</em>
+                                                }
+                                            </td>
+                                            <td>@booking.StartDate.ToString("dd MMM yyyy")</td>
+                                            <td>@booking.EndDate.ToString("dd MMM yyyy")</td>
+                                            <td>₹@booking.TotalAmount</td>
+                                            <td class="text-center">
+                                                <span class="badge bg-@(
+                                                   booking.Status?.ToString() == "Confirmed" ? "success" :
+                                                    booking.Status?.ToString() == "Pendings" ? "warning" :
+                                                    "danger")">
+                                                    @booking.Status
+                                                </span>
+                                            </td>
+                                            <td>@booking.PaymentMode</td>
+                                        </tr>
+                                    }
+                                </tbody>
+                            </table>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("footer")

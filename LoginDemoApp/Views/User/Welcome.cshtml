@@ -1,0 +1,39 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Welcome";
+    Layout = null;
+}
+
+@await Html.PartialAsync("customerheader")
+
+<section class="welcome-section d-flex align-items-center justify-content-center" style="min-height: 80vh; background: linear-gradient(to right, #f8f9fa, #e0e0e0);">
+    <div class="container text-center">
+        <div class="welcome-card shadow-lg p-5 rounded bg-white">
+          
+            <h1 class="display-5 fw-bold text-primary mb-3">
+                Welcome,
+                @{
+                    var userName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+                }
+
+                @if (!string.IsNullOrEmpty(userName))
+                {
+                    <span>@userName!</span>
+                }
+                else
+                {
+                    <span>Guest!</span>
+                }👋
+            </h1>
+            <p class="lead text-dark">You have successfully logged in to your dashboard.</p>
+            <p class="text-muted">Explore our available cars, make bookings, or manage your account from the navigation bar.</p>
+
+            <a asp-controller="User" asp-action="SearchCar" class="btn btn-outline-primary mt-4 px-4 py-2 fw-semibold">
+                View Cars
+            </a>
+        </div>
+    </div>
+</section>
+
+@await Html.PartialAsync("footer")

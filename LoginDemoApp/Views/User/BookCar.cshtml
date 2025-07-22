@@ -1,0 +1,83 @@
+﻿@model IEnumerable<LoginDemoApp.Models.Car>
+@{
+    ViewData["Title"] = "Book Car";
+    Layout = null;
+    var selectedCarId = ViewBag.SelectedCarId as int?;
+}
+
+@await Html.PartialAsync("customerheader")
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded">
+                <div class="card-header bg-primary text-white text-center">
+                    <h3>Book a Car</h3>
+                </div>
+                <div class="card-body">
+                    <form method="post" action="/User/SubmitBooking">
+                        <div class="form-group mb-3">
+                            <label for="carId" class="form-label">Select Car</label>
+                            @{
+                                var placeholderSelected = selectedCarId == null ? "selected" : null;
+                            }
+                            <option value="" disabled selected="@placeholderSelected">-- Select a Car --</option>
+
+                           <select id="carId" name="CarId" class="form-control" required>
+   
+    @foreach (var car in Model)
+    {
+        <option value="@car.Id" selected="@(selectedCarId == car.Id ? "selected" : null)">
+            @car.Brand @car.Model
+        </option>
+    }
+</select>
+
+                        </div>
+
+                        <div class="form-group mb-3">
+                            <label for="startDate" class="form-label">Start Date</label>
+                            <input type="date" id="startDate" name="StartDate" class="form-control" required />
+                        </div>
+
+                        <div class="form-group mb-4">
+                            <label for="endDate" class="form-label">End Date</label>
+                            <input type="date" id="endDate" name="EndDate" class="form-control" required />
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success px-5">Book Now</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("footer")
+
+<script>
+    // Prevent past dates
+    const today = new Date().toISOString().split("T")[0];
+    document.getElementById("startDate").min = today;
+    document.getElementById("endDate").min = today;
+
+    const startDateInput = document.getElementById("startDate");
+    const endDateInput = document.getElementById("endDate");
+
+    startDateInput.addEventListener("change", function () {
+        endDateInput.min = this.value;
+        if (endDateInput.value && endDateInput.value <= this.value) {
+            alert("End date must be later than the start date.");
+            endDateInput.value = "";
+        }
+    });
+
+    endDateInput.addEventListener("change", function () {
+        if (this.value <= startDateInput.value) {
+            alert("End date must be later than the start date.");
+            this.value = "";
+        }
+    });
+</script>

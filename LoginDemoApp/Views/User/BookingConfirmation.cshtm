@@ -1,0 +1,21 @@
+﻿@model Booking
+
+@{
+    ViewData["Title"] = "Booking Confirmation";
+    Layout = null;
+}
+
+@await Html.PartialAsync("customerheader")
+
+<h2>Booking Confirmation</h2>
+
+<div>
+    <p><strong>Car:</strong> @Model.Car.Brand @Model.Car.Model</p>
+    <p><strong>Start Date:</strong> @Model.StartDate.ToShortDateString()</p>
+    <p><strong>End Date:</strong> @Model.EndDate.ToShortDateString()</p>
+    <p><strong>Total Amount:</strong> ₹@Model.TotalAmount</p>
+    <p><strong>Status:</strong> @Model.Status</p>
+    <p><strong>Payment Mode:</strong> @Model.PaymentMode</p>
+</div>
+
+@await Html.PartialAsync("footer")

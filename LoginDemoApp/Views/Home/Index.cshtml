@@ -1,0 +1,262 @@
+﻿
+@model Tuple<IEnumerable<Car>, IEnumerable<Feedback>>
+
+@{
+    ViewData["Title"] = "Home";
+    Layout = "_Layout";
+}
+
+<!-- Hero Section -->
+<section class="hero-section">
+    <div class="hero-text">
+        <h1>Find Your Perfect Ride Today!</h1>
+        <p>Affordable, Reliable, and Fast Car Rentals</p>
+        <a href="#browse" class="btn btn-primary">Browse Cars</a>
+    </div>
+</section>
+
+<!-- Search Bar -->
+<section class="search-section" id="browse">
+    <input type="text" id="searchInput" placeholder="Search cars by brand or model..." onkeyup="searchCars()" />
+</section>
+
+<!-- Car Display Section -->
+<section class="car-display" >
+    <h2 class="text-center my-4">Available Cars</h2>
+
+    <div class="car-container" id="carContainer">
+        @foreach (var car in Model.Item1)
+        {
+            <div class="car-card">
+                <img src="@car.ImageUrl" alt="@car.Brand" />
+                <h3>@car.Brand @car.Model</h3>
+                <p><strong>Year:</strong> @car.Year</p>
+                <p><strong>Color:</strong> @car.Color</p>
+                <p><strong>Price:</strong> ₹@car.BookingPrice</p>
+                <button onclick="promptLogin()">Book Now</button>
+            </div>
+        }
+    </div>
+</section>
+
+<!-- Benefits Section -->
+<section class="benefits">
+    <h2>Why Choose Us?</h2>
+    <div class="benefit-items">
+        <div class="benefit"><i class="fas fa-wallet"></i> Affordable Prices</div>
+        <div class="benefit"><i class="fas fa-headset"></i> 24/7 Support</div>
+        <div class="benefit"><i class="fas fa-car"></i> Wide Car Selection</div>
+        <div class="benefit"><i class="fas fa-shield-alt"></i> Fully Insured</div>
+    </div>
+</section>
+
+<!-- Testimonials Section -->
+
+<section class="testimonials">
+    <h2 class="testimonial-header">What Our Customers Say</h2>
+    <div class="testimonial-cards">
+        @foreach (var testimonial in Model.Item2)
+        {
+            <div class="testimonial">
+                <blockquote>"@testimonial.Message"</blockquote>
+                <p>– <strong>@(testimonial.User?.Name ?? "Anonymous")</strong></p>
+            </div>
+        }
+    </div>
+</section>
+
+
+<!-- CTA Section -->
+<section class="cta">
+    <h2>Ready to Ride?</h2>
+    <p>Sign up now and book your dream car in minutes!</p>
+    <a href="/Account/Register" class="btn btn-success">Sign Up</a>
+</section>
+
+<script>
+    function promptLogin() {
+        alert("Please login or signup to use services.");
+        window.location.href = "/Account/Register";
+    }
+
+    function searchCars() {
+        var input = document.getElementById("searchInput").value.toLowerCase();
+        var cards = document.querySelectorAll(".car-card");
+
+        cards.forEach(function(card) {
+            var text = card.textContent.toLowerCase();
+            card.style.display = text.includes(input) ? "block" : "none";
+        });
+    }
+</script>
+
+<style>
+    /* Hero Section */
+    .hero-section {
+        background-image: url('/images/banner.jpg') ;
+        background-repeat:no-repeat;
+        background-size:cover;
+        background-position:center;
+      
+        height: 100vh;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        font-weight:900;
+        color: #ff7f50;
+        ;
+        padding: 20px;
+    }
+
+    .hero-text h1 {
+        font-size: 2.5rem;
+        font-weight: bold;
+    }
+
+    .hero-text p {
+        font-size: 1.25rem;
+    }
+
+    .hero-text .btn {
+        background-color: #ff7f50; /* Button color */
+        color: white;
+        padding: 12px 30px;
+        font-size: 1rem;
+        text-decoration: none;
+        border-radius: 30px;
+        margin-top: 20px;
+    }
+
+    /* Search Section */
+    .search-section {
+        padding: 20px;
+        text-align: center;
+    }
+
+    #searchInput {
+        width: 60%;
+        padding: 12px;
+        font-size: 16px;
+        border: 1px solid #ccc;
+        border-radius: 30px;
+        margin-top: 10px;
+    }
+
+    .car-display {
+        padding: 20px;
+    }
+
+    .car-container {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 20px;
+        justify-content: space-between;
+    }
+
+    .car-card {
+        flex: 0 0 calc(33.333% - 20px);
+        border: 1px solid #ccc;
+        padding: 15px;
+        text-align: center;
+        border-radius: 8px;
+        background-color: #f9f9f9;
+        box-sizing: border-box;
+        transition: transform 0.2s;
+    }
+
+        .car-card:hover {
+            transform: scale(1.02);
+        }
+
+        .car-card img {
+            width: 100%;
+            height: auto;
+            max-height: 160px;
+            object-fit: contain;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+    button, .btn {
+        background: crimson;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        padding: 8px 16px;
+        cursor: pointer;
+        margin-top: 10px;
+        text-decoration: none;
+    }
+
+    .benefits {
+        padding: 40px;
+        background: #f1f1f1;
+        text-align: center;
+    }
+
+    .benefit-items {
+        display: flex;
+        justify-content: space-around;
+        flex-wrap: wrap;
+    }
+
+    .benefit {
+        flex: 1;
+        min-width: 200px;
+        margin: 10px;
+        font-size: 18px;
+    }
+
+    .testimonials {
+        padding: 40px;
+        background: #ffffff;
+        text-align: center;
+    }
+
+    .testimonial-header {
+        font-size: 2rem;
+        font-weight: bold;
+        margin-bottom: 20px;
+        color: #333;
+    }
+
+    .testimonial-cards {
+        display: flex;
+        justify-content: center;
+        gap: 20px;
+        flex-wrap: wrap;
+        margin-top: 40px;
+    }
+
+    .testimonial {
+        background: #ffffff;
+        padding: 20px;
+        border-radius: 10px;
+        box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+        max-width: 300px;
+        text-align: center;
+    }
+
+        .testimonial blockquote {
+            font-style: italic;
+            color: #555;
+            margin-bottom: 10px;
+        }
+
+        .testimonial p {
+            font-weight: bold;
+            color: #333;
+            margin-top: 10px;
+        }
+
+        .testimonial strong {
+            color: #007bff;
+        }
+
+    .cta {
+        padding: 40px;
+        background: #eafaf1;
+        text-align: center;
+    }
+</style>

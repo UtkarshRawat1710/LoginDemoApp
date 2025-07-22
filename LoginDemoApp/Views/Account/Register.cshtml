@@ -1,0 +1,55 @@
+﻿@model LoginDemoApp.Models.User
+
+@{
+    ViewData["Title"] = "Register";
+}
+
+
+
+@if (TempData["ErrorMessage"] != null)
+{
+<script>
+        alert('@TempData["ErrorMessage"]');
+</script>
+}
+
+
+<div class="container mt-5" style="max-width: 500px;">
+    <div class="card shadow-lg">
+        <div class="card-body">
+            <h3 class="card-title text-center mb-4">Register</h3>
+
+            <form asp-action="Register" method="post">
+                <div class="form-group mb-3">
+                    <label asp-for="Name" class="form-label"></label>
+                    <input asp-for="Name" class="form-control" />
+                    <span asp-validation-for="Name" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group mb-3">
+                    <label asp-for="Email" class="form-label"></label>
+                    <input asp-for="Email" class="form-control" />
+                    <span asp-validation-for="Email" class="text-danger small"></span>
+                </div>
+
+                <div class="form-group mb-4">
+                    <label asp-for="Password" class="form-label"></label>
+                    <input asp-for="Password" type="password" class="form-control" />
+                    <span asp-validation-for="Password" class="text-danger small"></span>
+                </div>
+
+                <button type="submit" class="btn btn-primary w-100 mb-3">Register</button>
+            </form>
+
+            <div class="text-center">
+                <span>Already a member?</span>
+                <a href="/Account/Login" class="btn btn-link">Login Now</a>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

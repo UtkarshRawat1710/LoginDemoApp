@@ -1,0 +1,38 @@
+﻿@using Microsoft.AspNetCore.Http
+@inject IHttpContextAccessor HttpContextAccessor
+@{
+    ViewData["Title"] = "Admin Dashboard";
+    Layout = null;
+}
+
+@await Html.PartialAsync("adminheader")
+
+<section class="admin-welcome d-flex align-items-center justify-content-center" style="min-height: 80vh; background: linear-gradient(to right, #f5f7fa, #c3cfe2);">
+    <div class="container text-center">
+        <div class="admin-card shadow-lg p-5 bg-white rounded">
+            <h1 class="display-5 fw-bold text-dark mb-3">
+                Welcome,
+                @{
+                    var userName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+                }
+
+                @if (!string.IsNullOrEmpty(userName))
+                {
+                    <span>@userName!</span>
+                }
+                else
+                {
+                    <span>Guest!</span>
+                } 👨‍💼
+            </h1>
+            <p class="lead text-secondary">You are now logged in as <strong>Admin</strong>.</p>
+            <p class="text-muted">Use the navigation bar above to manage users, view bookings, update cars, and more.</p>
+
+            <a href="/Admin/ManageUsers" class="btn btn-dark mt-4 px-4 py-2 fw-semibold">
+                Go to Admin Panel
+            </a>
+        </div>
+    </div>
+</section>
+
+@await Html.PartialAsync("footer")

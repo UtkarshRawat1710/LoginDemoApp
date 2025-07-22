@@ -1,0 +1,62 @@
+﻿@model LoginDemoApp.Models.Booking
+
+@{
+    ViewData["Title"] = "Payment";
+    Layout = null;
+}
+
+@await Html.PartialAsync("customerheader")
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded">
+                <div class="card-header bg-info text-white text-center">
+                    <h3>Confirm Your Booking</h3>
+                </div>
+
+                <div class="card-body">
+                    @if (Model?.Car != null)
+                    {
+                        <p><strong>Car:</strong> @Model.Car.Brand @Model.Car.Model</p>
+                    }
+                    else
+                    {
+                        <p class="text-danger"><strong>Car information is unavailable.</strong></p>
+                    }
+
+                    <p><strong>Start Date:</strong> @Model?.StartDate.ToShortDateString()</p>
+                    <p><strong>End Date:</strong> @Model?.EndDate.ToShortDateString()</p>
+                    <p><strong>Total Amount:</strong> ₹@Model?.TotalAmount</p>
+
+                    <hr />
+
+                    <form method="post" action="/User/ConfirmPayment">
+                        <input type="hidden" name="bookingId" value="@Model?.Id" />
+
+                        <div class="form-group mb-3">
+                            <label for="paymentMode" class="form-label">Select Payment Mode</label>
+                            <select name="paymentMode" id="paymentMode" class="form-control" required>
+                                <option value="">-- Select Payment Mode --</option>
+                                <option value="Credit Card">Credit Card</option>
+                                <option value="Debit Card">Debit Card</option>
+                                <option value="Net Banking">Net Banking</option>
+                                <option value="UPI">UPI</option>
+                            </select>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success px-4">Confirm Booking</button>
+                        </div>
+                    </form>
+                </div>
+
+                <div class="card-footer text-muted text-center">
+                    Please ensure all details are correct before confirming.
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("footer")

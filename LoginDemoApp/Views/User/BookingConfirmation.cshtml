@@ -1,0 +1,43 @@
+﻿@model LoginDemoApp.Models.Booking
+
+@{
+    ViewData["Title"] = "Booking Confirmation";
+    Layout = null;
+}
+
+@await Html.PartialAsync("customerheader")
+
+<div class="container mt-5 mb-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card shadow-lg rounded">
+                <div class="card-header bg-success text-white text-center">
+                    <h3>Booking Confirmation</h3>
+                </div>
+
+                <div class="card-body">
+                    @if (Model?.Car != null)
+                    {
+                        <p><strong>Car:</strong> @Model.Car.Brand @Model.Car.Model</p>
+                    }
+                    else
+                    {
+                        <p class="text-danger"><strong>Car information is unavailable.</strong></p>
+                    }
+
+                    <p><strong>Start Date:</strong> @Model?.StartDate.ToShortDateString()</p>
+                    <p><strong>End Date:</strong> @Model?.EndDate.ToShortDateString()</p>
+                    <p><strong>Total Amount:</strong> ₹@Model?.TotalAmount</p>
+                    <p><strong>Status:</strong> @Model?.Status</p>
+                    <p><strong>Payment Mode:</strong> @Model?.PaymentMode</p>
+                </div>
+
+                <div class="card-footer text-muted text-center">
+                    Thank you for booking with us!
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("footer")

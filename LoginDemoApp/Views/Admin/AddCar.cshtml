@@ -1,0 +1,81 @@
+﻿@model LoginDemoApp.Models.Car
+
+@{
+    Layout = null;
+    ViewData["Title"] = "Add Car";
+}
+
+@await Html.PartialAsync("adminheader")
+
+<div class="container mt-5 mb-5" style="min-height: 70vh;">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg border-0">
+                <div class="card-header bg-dark text-white text-center">
+                    <h4 class="mb-0">Add New Car</h4>
+                </div>
+                <div class="card-body">
+
+                    @if (TempData["Success"] != null)
+                    {
+                        <div class="alert alert-success text-center">@TempData["Success"]</div>
+                    }
+
+                    <form asp-controller="Admin" asp-action="AddCar" method="post" enctype="multipart/form-data">
+
+                        <div class="mb-3">
+                            <label asp-for="Brand" class="form-label">Brand</label>
+                            <input asp-for="Brand" class="form-control" />
+                            <span asp-validation-for="Brand" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Model" class="form-label">Model</label>
+                            <input asp-for="Model" class="form-control" />
+                            <span asp-validation-for="Model" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Year" class="form-label">Year</label>
+                            <input asp-for="Year" class="form-control" />
+                            <span asp-validation-for="Year" class="text-danger small"></span>
+                        </div>
+
+                        <div class="mb-3">
+                            <label asp-for="Color" class="form-label">Color</label>
+                            <input asp-for="Color" class="form-control" />
+                            <span asp-validation-for="Color" class="text-danger small"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="ImageFile" class="form-label">Upload Image</label>
+                            <input asp-for="ImageFile" type="file" class="form-control" />
+                            <span asp-validation-for="ImageFile" class="text-danger small"></span>
+                        </div>
+                        <div class="mb-3">
+                            <label asp-for="BookingPrice" class="form-label">Booking Price (₹)</label>
+                            <input asp-for="BookingPrice" class="form-control" />
+                            <span asp-validation-for="BookingPrice" class="text-danger small"></span>
+                        </div>
+
+                        <div class="text-center">
+                            <button type="submit" class="btn btn-success px-4">Add Car</button>
+                        </div>
+                    </form>
+
+                    <!-- Show validation summary (only if there are errors) BELOW the form -->
+                    <div class="mt-4">
+                        @if (!ViewData.ModelState.IsValid)
+                        {
+                            <div class="alert alert-danger">
+                                Please correct the errors in the form before submitting.
+                            </div>
+                        }
+                    </div>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@await Html.PartialAsync("footer")

@@ -1,0 +1,20 @@
+
+header ,footer{
+ 
+    background-color: #3498db;
+   
+}
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #f8f9fa; /* Match your page background */
+}
+
+html, body {
+    height: 100%;
+}
+
+footer {
+    margin: 0;
+    padding: 0;
+}

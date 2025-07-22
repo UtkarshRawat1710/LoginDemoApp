@@ -1,0 +1,85 @@
+﻿@model IEnumerable<User>
+
+@{
+    Layout = null;
+}
+
+@await Html.PartialAsync("adminheader")
+
+<section class="customer-display container mt-5">
+    <h2 class="text-center mb-4">Available Customers</h2>
+
+    <!-- Search Input -->
+    <input type="text" id="searchInput" class="form-control mb-4 shadow-sm" placeholder="🔍 Search by name, email, phone...">
+
+    <div class="row" id="customerList">
+        @foreach (var customer in Model)
+        {
+            <div class="col-md-4 mb-4 customer-card-container">
+                <div class="customer-card p-4">
+                    <h4 class="mb-2">@customer.Name</h4>
+                    <p class="mb-1"><strong>Email:</strong> @customer.Email</p>
+                    <button class="btn btn-view" onclick="viewDetails(@customer.Id)">👁️ View Details</button>
+                </div>
+            </div>
+        }
+    </div>
+</section>
+
+<script>
+    // Redirect to details page
+    function viewDetails(customerId) {
+        window.location.href = "/Customer/Details/" + customerId;
+    }
+
+    // Search filter
+    document.getElementById('searchInput').addEventListener('keyup', function () {
+        const filter = this.value.toLowerCase();
+        const cards = document.querySelectorAll('.customer-card-container');
+
+        cards.forEach(card => {
+            const text = card.textContent.toLowerCase();
+            card.style.display = text.includes(filter) ? 'block' : 'none';
+        });
+    });
+</script>
+
+<style>
+    .customer-card {
+        border: 1px solid #ddd;
+        border-radius: 12px;
+        background-color: #ffffff;
+        box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+        text-align: center;
+        transition: transform 0.3s, box-shadow 0.3s;
+    }
+
+        .customer-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+        }
+
+    .btn-view {
+        background-color: #28a745;
+        color: #fff;
+        padding: 8px 16px;
+        border: none;
+        border-radius: 8px;
+        font-weight: bold;
+        transition: background-color 0.3s ease;
+    }
+
+        .btn-view:hover {
+            background-color: #218838;
+        }
+
+    input.form-control {
+        border-radius: 10px;
+        padding: 10px 15px;
+        font-size: 1rem;
+    }
+
+   
+</style>
+
+@await Html.PartialAsync("footer")
