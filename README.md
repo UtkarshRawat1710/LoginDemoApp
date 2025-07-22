@@ -182,4 +182,12 @@ The app will launch in your default browser.
 
 <hr>
 
+🚀 Future Enhancements
+<br>
+JWT-based Authentication
 
+Email Confirmation and Forgot Password
+
+Search & Filter cars by type, price, etc.
+
+Payment Gateway Integration
