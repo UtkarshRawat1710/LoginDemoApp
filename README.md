@@ -152,14 +152,17 @@ Follow these steps to set up and run the project locally:
 <br>
 
 ### 1. Clone the Repository  
+
 git clone https://github.com/your-username/CarRentalManagementSystem.git  
 <br>
 
-### 2. Open the Solution in Visual Studio  
+### 2. Open the Solution in Visual Studio
+
 Open the `.sln` file using Visual Studio.  
 <br>
 
-### 3. Update the Connection String  
+### 3. Update the Connection String 
+
 In the `appsettings.json` file, update the connection string as per your SQL Server:  
 <br>
 "ConnectionStrings": {
@@ -167,14 +170,16 @@ In the `appsettings.json` file, update the connection string as per your SQL Ser
 }
 <br>
 
-### 4. Apply Migrations and Update the Database  
+### 4. Apply Migrations and Update the Database
+
 Open the **Package Manager Console** in Visual Studio and run:  
 <br>
 Add-Migration InitialCreate
 Update-Database
 <br>
 
-### 5. Run the Project  
+### 5. Run the Project
+
 Run the project using **IIS Express** or **Kestrel** (`dotnet run`).  
 <br>
 The app will launch in your default browser.  
