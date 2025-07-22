@@ -1,82 +1,88 @@
-﻿using LoginDemoApp.Data;
+using System.Xml.Linq;
 using LoginDemoApp.Models;
 using Microsoft.AspNetCore.Mvc;
-using System.Linq;
+using Microsoft.EntityFrameworkCore;
+using System.Net.NetworkInformation;
+using LoginDemoApp.Data;
 
+using Microsoft.AspNetCore.Http;
+using System.Security.Claims;
 namespace LoginDemoApp.Controllers
 {
-    public class AccountController : Controller
+    public class AdminController : Controller
     {
         private readonly AppDbContext _context;
 
-        public AccountController(AppDbContext context)
+        public AdminController(AppDbContext context)
         {
             _context = context;
         }
-
-        public IActionResult Login()
+        public IActionResult AdminDashboard(string name,string email,int id,string role)
         {
+           
+            HttpContext.Session.SetString("UserName", name);
+            HttpContext.Session.SetString("UserEmail", email);
+            HttpContext.Session.SetInt32("UserId", id);
+            HttpContext.Session.SetString("UserRole", role);
             return View();
+           
         }
-
-       [HttpPost]
-public IActionResult Login(string email, string password, string role)
-{
-    var user = _context.Users.FirstOrDefault(u => u.Email == email);
-
-    if (user != null && user.Password == password)
-    {
-
-        if (user.Role == role)
+        public IActionResult ViewBooking()
         {
-                    // Redirect based on role
-                    if (user.Role == "Admin")
-                    {
-                        return RedirectToAction("AdminDashboard", "Admin", new { name = user.Name, email = user.Email,id=user.Id,password=user.Password,role=user.Role });
-                    }
-                    else
-                    {
-                        return RedirectToAction("Welcome", "User", new { name = user.Name, email = user.Email, id = user.Id,password=user.Password,role=user.Role });
-                    }
-          }
-        else
-        {
-            TempData["ErrorMessage"] = "Incorrect role selected.";
-            return RedirectToAction("Login");
-        }
-    }
 
-    TempData["ErrorMessage"] = "Invalid email or password.";
-    return RedirectToAction("Login");
-}
+            var bookings = _context.Bookings
+                .Include(b => b.User)
+                .Include(b => b.Car)
+                .ToList();
 
-
-        public IActionResult Register()
-        {
-            return View();
+            return View(bookings);
         }
 
         [HttpPost]
-        public IActionResult Register(string name, string email, string password)
+      
+        [ValidateAntiForgeryToken] // Optional but recommended
+        public async Task<IActionResult> AddCar(Car car)
         {
-            var newUser = new User
+            if (ModelState.IsValid && car.ImageFile != null)
             {
-                Name = name,
-                Email = email,
-                Password = password,
-                Role = "User" // this is the key!
-            };
+                var fileName = Path.GetFileName(car.ImageFile.FileName);
+                var filePath = Path.Combine(Directory.GetCurrentDirectory(), "wwwroot/images/cars", fileName);
 
-            _context.Users.Add(newUser);
-            _context.SaveChanges();
+                using (var stream = new FileStream(filePath, FileMode.Create))
+                {
+                    await car.ImageFile.CopyToAsync(stream);
+                }
+                car.ImageUrl = "/images/cars/" + fileName; // ✅ Leading slash
 
-            TempData["Message"] = $"Welcome {newUser.Name}! Please log in.";
-            return RedirectToAction("Login");
+                _context.Cars.Add(car);
+                await _context.SaveChangesAsync();
+
+                TempData["Success"] = "Car added successfully!";
+                return RedirectToAction("AddCar"); // Redirect to the GET AddCar
+            }
+
+            return View(car); // In case of validation failure
         }
 
+        [HttpGet]
+        public IActionResult AddCar()
+        {
+            return View();
+        }
 
+        public IActionResult SearchCustomers()
+        {
+            var user = _context.Users
+               .Where(f => f.Role == "User")
+               .ToList();
 
-       
-      
+            return View(user);
+        }
+
+        public IActionResult ViewFeedback()
+        {
+            var feedbacks = _context.Feedbacks.Include(f => f.User).ToList();
+            return View(feedbacks);
+        }
     }
 }
