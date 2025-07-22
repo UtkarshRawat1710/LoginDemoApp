@@ -148,7 +148,7 @@ CarRentalSystem/
 
 ## 🔧 How to Run
 
-Follow these steps to set up and run the project locally:<br><br>
+Follow these steps to set up and run the project locally:<br>
 
 ### 1. Clone the Repository  
 <br>
@@ -158,7 +158,7 @@ git clone https://github.com/your-username/CarRentalManagementSystem.git
 ### 2. Open the Solution in Visual Studio  
 <br>
 Open the `.sln` file using Visual Studio.  
-<br><br>
+<br>
 
 ### 3. Update the Connection String  
 <br>
@@ -168,10 +168,7 @@ In the `appsettings.json` file, update the connection string as per your SQL Ser
 "ConnectionStrings": {
 "DefaultConnection": "Server=.;Database=CarRentalDB;Trusted_Connection=True;"
 }
-
-
 <br>
-
 ### 4. Apply Migrations and Update the Database  
 <br>
 Open the **Package Manager Console** in Visual Studio and run:  
@@ -179,13 +176,9 @@ Open the **Package Manager Console** in Visual Studio and run:
 
 Add-Migration InitialCreate
 Update-Database
-
-
 <br>
-
 > **Note:** If migrations already exist, you can skip `Add-Migration`.  
-<br><br>
-
+<br>
 ### 5. Run the Project  
 <br>
 Run the project using **IIS Express** or **Kestrel** (`dotnet run`).  
