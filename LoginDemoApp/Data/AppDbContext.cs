@@ -1,4 +1,4 @@
-﻿using Microsoft.EntityFrameworkCore;
+using Microsoft.EntityFrameworkCore;
 using LoginDemoApp.Models;
 
 using System.Collections.Generic;
