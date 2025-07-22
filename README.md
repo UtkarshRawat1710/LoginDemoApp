@@ -1,4 +1,4 @@
-<img width="2849" height="1269" alt="Screenshot 2025-07-22 163939" src="https://github.com/user-attachments/assets/752f8ec0-fa6b-4cc8-8660-9dd42934be65" /># 🚗 Car Rental Management System
+# 🚗 Car Rental Management System
 
 The Car Rental Management System is a web-based application built using ASP.NET Core MVC. It enables a seamless car booking experience for users, allows them to provide feedback, and offers complete car, booking, and feedback management functionalities for admins.
 
