@@ -143,7 +143,7 @@ CarRentalSystem/
 ├── CarRentalSystem.csproj
 <br>
 └── CarRentalSystem.
----
+   ---
 ## 🧪 How to Run the Project
 
 1. Clone or download the project
