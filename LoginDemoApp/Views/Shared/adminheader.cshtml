@@ -1,7 +1,14 @@
-﻿
+
 @using Microsoft.AspNetCore.Http
 @inject IHttpContextAccessor HttpContextAccessor
 <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
+@{
+    var userName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
+    var userEmail = HttpContextAccessor.HttpContext.Session.GetString("UserEmail");
+    var userId = HttpContextAccessor.HttpContext.Session.GetString("UserId");
+    var userRole = HttpContextAccessor.HttpContext.Session.GetString("UserRole");
+
+}
 
 <nav class="navbar navbar-expand-lg navbar-dark bg-primary">
     <div class="container">
@@ -28,9 +35,7 @@
                 <li class="nav-item dropdown">
                     <a class="nav-link dropdown-toggle" href="#" id="adminDropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
                         <img src="~/images/user.webp" alt="Admin" height="30" width="30" class="rounded-circle" />
-                        @{
-                            var userName = HttpContextAccessor.HttpContext.Session.GetString("UserName");
-                        }
+                       
 
                         @if (!string.IsNullOrEmpty(userName))
                         {
@@ -42,7 +47,7 @@
                         }
                     </a>
                     <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="adminDropdown">
-                        <li><a class="dropdown-item" href="/Account/Profile">Profile</a></li>
+                        <li><a class="dropdown-item" href="#" data-bs-toggle="modal" data-bs-target="#profileModal">Profile</a></li>
                         <li><a class="dropdown-item" href="/Account/Logout">Logout</a></li>
                     </ul>
                 </li>
@@ -50,5 +55,43 @@
         </div>
     </div>
 </nav>
+<!-- Update Profile Modal -->
+<div class="modal fade" id="profileModal" tabindex="-1" aria-labelledby="profileModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <form method="post" action="/User/UpdateProfile">
+                <div class="modal-header">
+                    <h5 class="modal-title">Update Profile</h5>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal"></button>
+                </div>
+                <div class="modal-body">
+                    <input type="hidden" name="Id" value="@userId" />
+
+                    <div class="mb-3">
+                        <label class="form-label">Name</label>
+                        <input type="text" class="form-control" name="Name" value="@userName" required />
+                    </div>
+
+                    <div class="mb-3">
+                        <label class="form-label">Email</label>
+                        <input type="email" class="form-control" name="Email" value="@userEmail" readonly />
+                    </div>
+
+                    <div class="mb-3">
+                        <<label for="Password" class="form-label">Password (leave blank to keep current)</label>
+                        <input type="password" class="form-control" id="Password" name="Password" />
+                    </div>
+
+                    <input type="hidden" name="Role" value="@userRole" />
+                </div>
+                <div class="modal-footer">
+                    <button type="submit" class="btn btn-primary">Update</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+
 
 <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/js/bootstrap.bundle.min.js"></script>
