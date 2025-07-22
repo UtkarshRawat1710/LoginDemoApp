@@ -153,7 +153,7 @@ Follow these steps to set up and run the project locally:
 
 ### 1. Clone the Repository  
 
-git clone https://github.com/your-username/CarRentalManagementSystem.git  
+git clone https://github.com/Utkarshrawat1710/LoginDemoApp.git  
 
 ### 2. Open the Solution in Visual Studio
 
