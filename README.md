@@ -143,11 +143,4 @@ CarRentalSystem/
 ├── CarRentalSystem.csproj
 <br>
 └── CarRentalSystem.
-   ---
-## 🧪 How to Run the Project
-
-1. Clone or download the project
-2. Open in **Visual Studio**
-3. Update `appsettings.json` for your SQL Server connection
-4. Run the project (IIS Express or Kestrel)
-5. Database auto-created via EF Core migrations (or run manually if not set up)
+  
