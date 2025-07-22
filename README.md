@@ -24,6 +24,7 @@ Users can interact with the following modules:
 - New users can register.
 - Existing users can log in using credentials.
 <img width="2835" height="1250" alt="Screenshot 2025-07-22 163514" src="https://github.com/user-attachments/assets/e832715d-8def-4339-b7ba-9ada370772fa" />
+<br>
 <img width="2845" height="1224" alt="Screenshot 2025-07-22 163531" src="https://github.com/user-attachments/assets/af88745b-41a9-4d6c-a973-1f32fe38e1fc" />
 
 ### 2. **Search Cars**
