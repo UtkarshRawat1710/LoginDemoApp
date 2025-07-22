@@ -37,6 +37,18 @@ namespace LoginDemoApp.Controllers
 
             return View(bookings);
         }
+        [HttpPost]
+        public IActionResult Delete(int id)
+        {
+            var booking = _context.Bookings.Find(id);
+            if (booking != null)
+            {
+                _context.Bookings.Remove(booking);
+                _context.SaveChanges();
+                TempData["Message"] = "Booking deleted successfully.";
+            }
+            return RedirectToAction("Index");
+        }
 
         [HttpPost]
       
@@ -84,5 +96,23 @@ namespace LoginDemoApp.Controllers
             var feedbacks = _context.Feedbacks.Include(f => f.User).ToList();
             return View(feedbacks);
         }
+        [HttpPost]
+        public IActionResult DeleteFeedback(int id)
+        {
+            var feedback = _context.Feedbacks.Find(id);
+            if (feedback != null)
+            {
+                _context.Feedbacks.Remove(feedback);
+                _context.SaveChanges();
+                TempData["Message"] = "Feedback deleted successfully.";
+            }
+            else
+            {
+                TempData["ErrorMessage"] = "Feedback not found.";
+            }
+
+            return RedirectToAction("ViewFeedback");
+        }
+
     }
 }
