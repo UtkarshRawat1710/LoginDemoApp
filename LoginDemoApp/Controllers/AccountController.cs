@@ -49,6 +49,17 @@ public IActionResult Login(string email, string password, string role)
     TempData["ErrorMessage"] = "Invalid email or password.";
     return RedirectToAction("Login");
 }
+        public IActionResult Logout()
+        {
+            // Clear the session
+            HttpContext.Session.Clear();
+
+            // Optional: TempData message
+            TempData["LogoutMessage"] = "You have been logged out successfully.";
+
+            // Redirect to Login page
+            return RedirectToAction("Login", "Account");
+        }
 
 
         public IActionResult Register()
