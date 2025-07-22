@@ -181,8 +181,9 @@ Run the project using **IIS Express** or **Kestrel** (`dotnet run`).
 The app will launch in your default browser.  
 
 <hr>
+---
 
-<b>🚀 Future Enhancements</b>
+## 🚀 Future Enhancements
 <br>
 JWT-based Authentication
 
