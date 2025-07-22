@@ -185,13 +185,13 @@ The app will launch in your default browser.
 ## 🚀 Future Enhancements
 
 
-JWT-based Authentication
+- JWT-based Authentication
 <br>
 <br>
-Email Confirmation and Forgot Password
+- Email Confirmation and Forgot Password
 <br>
 <br>
-Search & Filter cars by type, price, etc.
+- Search & Filter cars by type, price, etc.
 <br>
 <br>
-Payment Gateway Integration
+- Payment Gateway Integration
