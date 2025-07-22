@@ -129,7 +129,7 @@ Admins have the following access:
 ## 🗂️ Folder Structure
 
 CarRentalSystem/
-│ <br>
+ <br>
 ├── Controllers/
 <br>
 ├── Models/
