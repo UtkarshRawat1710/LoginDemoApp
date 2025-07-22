@@ -49,7 +49,8 @@ Users can interact with the following modules:
 ### 4. **View Booking History**
 
 - See all current and past bookings by the logged-in user.
-- <img width="2880" height="1620" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/20e3df61-5263-405d-9f9e-512a2ee3db4c" />
+<img width="2839" height="1265" alt="Screenshot 2025-07-22 164310" src="https://github.com/user-attachments/assets/896f1cbf-c6cf-4c50-95d1-c6bfeb7a91b0" />
+
 
 
 ### 5. **Feedback**
