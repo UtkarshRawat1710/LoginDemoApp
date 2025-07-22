@@ -182,7 +182,7 @@ The app will launch in your default browser.
 
 <hr>
 
-##🚀 Future Enhancements
+<b>🚀 Future Enhancements</b>
 <br>
 JWT-based Authentication
 
