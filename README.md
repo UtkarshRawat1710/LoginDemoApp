@@ -2,7 +2,8 @@
 
 The Car Rental Management System is a web-based application built using ASP.NET Core MVC. It enables a seamless car booking experience for users, allows them to provide feedback, and offers complete car, booking, and feedback management functionalities for admins.
 
----![porsche](https://github.com/user-attachments/assets/7ec43574-46ad-40ee-bc92-a0bba56a4d16)
+---<img width="2841" height="1268" alt="Screenshot 2025-07-22 162913" src="https://github.com/user-attachments/assets/89cf1807-fae0-4377-8572-d10f67bfdbe3" />
+
 
 
 ## 🔑 User Interfaces
