@@ -68,14 +68,20 @@ Users can interact with the following modules:
 
 Admins have the following access:
 
+
 ### 1. **Login**
 
 - Admins can log in using their role-based credentials.
+  
+<img width="2835" height="1250" alt="Screenshot 2025-07-22 163514" src="https://github.com/user-attachments/assets/69df4536-0607-4d38-aafc-193cf3712991" />
 
 ### 2. **Manage Bookings**
 
 - View all bookings done by all users.
 - Delete any booking as required.
+  
+  <img width="2827" height="1220" alt="Screenshot 2025-07-22 172422" src="https://github.com/user-attachments/assets/15caaec8-861c-4d1f-8618-9ef533eb2a48" />
+
 
 ### 3. **Add Cars**
 
@@ -84,15 +90,21 @@ Admins have the following access:
   - Model
   - Rent price
   - Description
+    <img width="2850" height="1268" alt="Screenshot 2025-07-22 172455" src="https://github.com/user-attachments/assets/98eab703-1fc8-49fe-a5ba-73322c13df99" />
+
 
 ### 4. **Search Customers**
 
 - Search user details based on their name or email (optional feature).
+  <img width="2846" height="1261" alt="Screenshot 2025-07-22 172514" src="https://github.com/user-attachments/assets/4248ebbb-fd7d-4de2-a745-e51bd82cee9d" />
+
 
 ### 5. **Manage Feedbacks**
 
 - View all feedback submitted by users.
 - Delete inappropriate or irrelevant feedback.
+  
+<img width="2847" height="1182" alt="Screenshot 2025-07-22 172540" src="https://github.com/user-attachments/assets/656fb0cd-f448-497b-a3d6-a9bc61ef2da0" />
 
 ---
 
