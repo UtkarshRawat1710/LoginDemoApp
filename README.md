@@ -154,7 +154,7 @@ Follow these steps to set up and run the project locally:<br><br>
 <br>
 git clone https://github.com/your-username/CarRentalManagementSystem.git
 <br>
-###2. Open the Solution in Visual Studio
+### 2. Open the Solution in Visual Studio
 <br>
 Open the .sln file using Visual Studio.<br><br>
 
