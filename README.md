@@ -90,14 +90,16 @@ Admins have the following access:
   - Model
   - Rent price
   - Description
-    <br>
+
+
     <img width="2850" height="1268" alt="Screenshot 2025-07-22 172455" src="https://github.com/user-attachments/assets/98eab703-1fc8-49fe-a5ba-73322c13df99" />
 
 
 ### 4. **Search Customers**
 
 - Search user details based on their name or email (optional feature).
- <br>
+
+
   <img width="2846" height="1261" alt="Screenshot 2025-07-22 172514" src="https://github.com/user-attachments/assets/4248ebbb-fd7d-4de2-a745-e51bd82cee9d" />
 
 
@@ -105,7 +107,8 @@ Admins have the following access:
 
 - View all feedback submitted by users.
 - Delete inappropriate or irrelevant feedback.
-  <br>
+
+ 
 <img width="2847" height="1182" alt="Screenshot 2025-07-22 172540" src="https://github.com/user-attachments/assets/656fb0cd-f448-497b-a3d6-a9bc61ef2da0" />
 
 
