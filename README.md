@@ -128,3 +128,12 @@ Admins have the following access:
 
 ## 🗂️ Folder Structure
 
+CarRentalSystem/
+│
+├── Controllers/
+├── Models/
+├── Views/
+├── wwwroot/
+├── appsettings.json
+├── CarRentalSystem.csproj
+└── CarRentalSystem.sln
