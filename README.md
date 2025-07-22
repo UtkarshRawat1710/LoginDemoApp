@@ -151,9 +151,9 @@ CarRentalSystem/
 1. Clone the repository:
    ```bash
    git clone https://github.com/your-username/CarRentalManagementSystem.git
-Open the .sln file in Visual Studio.
+2.Open the .sln file in Visual Studio.
 
-Update the connection string in appsettings.json:
+3.Update the connection string in appsettings.json:
 
 json
 Copy
@@ -161,12 +161,12 @@ Edit
 "ConnectionStrings": {
   "DefaultConnection": "Server=.;Database=CarRentalDB;Trusted_Connection=True;"
 }
-Apply Migrations and update DB:
+4.Apply Migrations and update DB:
 
 bash
 Copy
 Edit
 Add-Migration InitialCreate
 Update-Database
-Run the project using IIS Express or Kestrel.
+5.Run the project using IIS Express or Kestrel.
   
