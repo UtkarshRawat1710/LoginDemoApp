@@ -33,7 +33,7 @@ Users can interact with the following modules:
 - Users can search available cars from the dynamic database.
 <img width="2849" height="1269" alt="Screenshot 2025-07-22 163939" src="https://github.com/user-attachments/assets/be13eabe-481f-4229-b0d5-d5aba4714e49" />
 
-### 3. **Book Cars*
+### 3. **Book Cars**
 
 
 - Select a car
