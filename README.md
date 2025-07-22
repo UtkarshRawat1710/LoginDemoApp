@@ -183,11 +183,15 @@ The app will launch in your default browser.
 <hr>
 
 ## 🚀 Future Enhancements
-<br>
+
+
 JWT-based Authentication
+<br>
 <br>
 Email Confirmation and Forgot Password
 <br>
+<br>
 Search & Filter cars by type, price, etc.
+<br>
 <br>
 Payment Gateway Integration
