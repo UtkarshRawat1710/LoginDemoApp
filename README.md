@@ -1,6 +1,6 @@
 # 🚗 Car Rental Management System
 
-The Car Rental Management System is a web-based application built using ASP.NET Core MVC. It enables a seamless car booking experience for users and offers full booking and feedback management functionalities for admins.
+The Car Rental Management System is a web-based application built using ASP.NET Core MVC. It enables a seamless car booking experience for users, allows them to provide feedback, and offers complete car, booking, and feedback management functionalities for admins.
 
 ---
 
