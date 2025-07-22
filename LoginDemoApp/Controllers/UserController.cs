@@ -1,4 +1,4 @@
-﻿using LoginDemoApp.Data;
+using LoginDemoApp.Data;
 using LoginDemoApp.Models;
 using Microsoft.AspNetCore.Mvc;
 using Microsoft.EntityFrameworkCore;
@@ -18,12 +18,12 @@ namespace LoginDemoApp.Controllers
             _httpContextAccessor = httpContextAccessor;
         }
 
-        public IActionResult Welcome(string name, string email, int id,string password,string role)
+        public IActionResult Welcome(string name, string email, int id,string role)
         {
             HttpContext.Session.SetString("UserName", name);
             HttpContext.Session.SetString("UserEmail", email);
             HttpContext.Session.SetInt32("UserId", id);
-            HttpContext.Session.SetString("UserPassword", password);
+       
             HttpContext.Session.SetString("UserRole", role);
             return View();
         }
@@ -169,7 +169,7 @@ namespace LoginDemoApp.Controllers
             Console.WriteLine("User Model Data:");
             Console.WriteLine($"Name: {model.Name}");
             Console.WriteLine($"Email: {model.Email}");
-            Console.WriteLine($"Password: {model.Password}"); // For debugging only – Don't log passwords in production
+           
 
             if (ModelState.IsValid)
             {
@@ -201,12 +201,12 @@ namespace LoginDemoApp.Controllers
                     TempData["Error"] = "User not found.";
                 }
 
-            return RedirectToAction("Welcome", "User", new { name = model.Name, email = model.Email, id = model.Id, password = model.Password, role = model.Role });
+            return RedirectToAction("Welcome", "User", new { name = model.Name, email = model.Email, id = model.Id, role = model.Role });
 
             }
 
             TempData["Error"] = "Invalid input!";
-            return RedirectToAction("Welcome", "User", new { name = model.Name, email = model.Email, id = model.Id, password = model.Password, role = model.Role });
+            return RedirectToAction("Welcome", "User", new { name = model.Name, email = model.Email, id = model.Id, role = model.Role });
         }
 
 
