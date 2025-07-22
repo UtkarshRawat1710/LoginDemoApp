@@ -40,15 +40,24 @@ Users can interact with the following modules:
 - Choose start & end dates
 - Rent is auto-calculated before confirmation
 - Proceed to book the car
+<img width="2852" height="1177" alt="Screenshot 2025-07-22 164231" src="https://github.com/user-attachments/assets/0b340af1-668f-4250-b706-98141c99dbd9" />
+<br>
+<br>
+
+<img width="2842" height="1209" alt="Screenshot 2025-07-22 164246" src="https://github.com/user-attachments/assets/004ec230-3c1a-431d-bd98-22829afaf143" />
 
 ### 4. **View Booking History**
 
 - See all current and past bookings by the logged-in user.
+- <img width="2880" height="1620" alt="Screenshot (1)" src="https://github.com/user-attachments/assets/20e3df61-5263-405d-9f9e-512a2ee3db4c" />
+
 
 ### 5. **Feedback**
 
 - Submit feedback that is visible to the admin.
 - Helps improve service quality.
+- <img width="2848" height="1193" alt="Screenshot 2025-07-22 164341" src="https://github.com/user-attachments/assets/5785669b-2d23-4271-8838-3d305e9e30cd" />
+
 
 ---
 
