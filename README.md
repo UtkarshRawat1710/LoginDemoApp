@@ -129,9 +129,11 @@ Admins have the following access:
 ## 🗂️ Folder Structure
 
 CarRentalSystem/
-│
+│ <br>
 ├── Controllers/
+<br>
 ├── Models/
+<<br>
 ├── Views/
 ├── wwwroot/
 ├── appsettings.json
