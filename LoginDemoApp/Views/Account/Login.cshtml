@@ -1,4 +1,4 @@
-﻿@{
+@{
     ViewData["Title"] = "Login";
     Layout = "_Layout";
 }
@@ -22,6 +22,12 @@
 @if (TempData["Error"] != null)
 {
     <div class="alert alert-danger">@TempData["Error"]</div>
+}
+@if (TempData["LogoutMessage"] != null)
+{
+    <div class="alert alert-success">
+        @TempData["LogoutMessage"]
+    </div>
 }
 
 <div class="container mt-5" style="max-width: 500px;">
