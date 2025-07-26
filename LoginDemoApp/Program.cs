@@ -16,10 +16,12 @@ builder.Services.AddSession(options =>
 
 // Register IHttpContextAccessor if you plan to use it
 builder.Services.AddHttpContextAccessor();
+
 // Add MySQL DB context with a connection string from appsettings.json.
 builder.Services.AddDbContext<AppDbContext>(options =>
     options.UseMySql(builder.Configuration.GetConnectionString("DefaultConnection"),
-        ServerVersion.AutoDetect(builder.Configuration.GetConnectionString("DefaultConnection"))));
+    new MySqlServerVersion(new Version(8, 0, 36)))); // Use the correct version
+
 
 
 builder.Services.AddRazorPages(); // If you're using Razor Pages, make sure this is added as well.
